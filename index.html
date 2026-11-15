@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ReelTally Shorts Link - Privacy Policy</title>
+<style>
+  body { font: 16px/1.6 system-ui, -apple-system, Segoe UI, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; color: #1b1b1f; }
+  h1 { font-size: 1.6rem; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+  code { background: #f0f0f4; padding: 1px 5px; border-radius: 4px; }
+  @media (prefers-color-scheme: dark) { body { background: #111114; color: #e8e8ee; } code { background: #26262c; } a { color: #8ab4ff; } }
+</style>
+</head>
+<body>
+<h1>ReelTally Shorts Link - Privacy Policy</h1>
+<p><strong>Effective date:</strong> 16 November 2026</p>
+
+<p>ReelTally Shorts Link ("the extension") is the browser companion of the ReelTally phone app. It counts the YouTube Shorts and Instagram Reels you scroll on your computer, adds them to your ReelTally total on <em>your own</em> phone, shows the same counter, and blocks Shorts and Reels while your phone says you are over your limit.</p>
+
+<h2>Short version</h2>
+<ul>
+  <li>The developer runs <strong>no server</strong> and <strong>receives no data</strong> from the extension. There are no accounts, no analytics, no advertising and no tracking.</li>
+  <li>Everything the extension sends goes to <strong>your own phone</strong>, encrypted with a key that exists only on your devices.</li>
+  <li>We never sell, share or transfer user data to anyone.</li>
+</ul>
+
+<h2>What the extension reads</h2>
+<p>On <code>youtube.com</code> and <code>instagram.com</code> pages only, the extension reads the page address to notice when you land on a new Short or Reel, and a small amount of page structure (for example, whether an item carries a "Sponsored" label) so that ads are not counted. It does <strong>not</strong> read, store or send video titles, video IDs, comments, account names, search terms, messages or any other page content, and it does not run on any other website.</p>
+
+<h2>What the extension stores on your computer</h2>
+<p>In the browser's local extension storage: your pairing code, the counts and times of Shorts/Reels you watched in the last few days, the last status received from your phone (count, limits, whether you are blocked, theme), a short debug log of counting decisions, a random browser identifier, a browser name (for example "Chrome") and your display settings. This data stays in your browser until you remove the extension or clear its data.</p>
+
+<h2>What the extension sends, and where</h2>
+<p>The extension sends only: timestamps of Shorts/Reels you landed on, how long you watched, the name of this browser, and requests to receive your phone's status. All messages are sealed with AES-256-GCM using a key derived from the pairing code shown in your phone app. The pairing code itself is never transmitted. Messages travel by one of these routes, whichever is available:</p>
+<ol>
+  <li><strong>Directly to your phone</strong> on the same Wi-Fi network (optional permission, only if you grant it).</li>
+  <li><strong>Public relay services</strong> that only carry the sealed messages and cannot read them: MQTT brokers (<code>broker.emqx.io</code>, <code>broker.hivemq.com</code>, <code>test.mosquitto.org</code>) and the <code>ntfy.sh</code> relay. Their operators can see that a message of a certain size was sent on a topic name (a hash of your pairing code), but not its content. They have their own privacy policies.</li>
+  <li><strong>A helper on your own computer</strong> (<code>127.0.0.1</code>), only if you installed the optional ReelTally strict-lock service, to tell it whether strict mode is on.</li>
+</ol>
+<p>Nothing is sent to the developer.</p>
+
+<h2>Camera</h2>
+<p>If you choose "Scan QR" on the pairing page, the browser asks for camera access to read the QR code shown by your phone. The video is processed on your device to read the code and is never recorded, stored or sent.</p>
+
+<h2>Remote code</h2>
+<p>The extension does not load or run code from the internet. All code is in the extension package (including the open-source jsQR library, Apache-2.0).</p>
+
+<h2>Your choices and deleting data</h2>
+<p>Removing the extension deletes everything it stored. You can also change or remove the pairing code on the extension's options page, which clears the stored phone status and stops all network use until you pair again. Messages held by public relays expire automatically within hours to days; because they are encrypted, they contain nothing readable.</p>
+
+<h2>Children</h2>
+<p>The extension is not directed at children and does not knowingly collect any personal information.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes, the new version will be published at this address with a new effective date.</p>
+
+<h2>Contact</h2>
+<p>Questions or requests: open an issue at <a href="https://github.com/keyholder1/reeltally-privacy/issues">github.com/keyholder1/reeltally-privacy/issues</a>.</p>
+</body>
+</html>
